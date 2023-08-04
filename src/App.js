@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { TezosToolkit } from '@taquito/taquito';
-
-import "./styles.css";
-
 import { Magic } from "magic-sdk";
-
 import { TaquitoExtension } from '@magic-ext/taquito'
+import "./styles.css";
 
 const magic = new Magic("pk_live_C20A087BDF08A859", {
     extensions: {
         taquito: new TaquitoExtension({
-            rpcUrl: "https://rpc.ithacanet.teztnets.xyz"
+            rpcUrl: "https://ghostnet.tezos.marigold.dev"
         })
     }
 });
@@ -47,7 +44,7 @@ export default function App() {
 
     const handleMagicSign = async () => {
         setSendingTransaction(true);
-        const Tezos = new TezosToolkit('https://rpc.ithacanet.teztnets.xyz');
+        const Tezos = new TezosToolkit('https://ghostnet.tezos.marigold.dev');
         const magicSigner = await magic.taquito.createMagicSigner();
 
         Tezos.setProvider({signer: magicSigner});
