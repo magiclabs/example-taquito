@@ -7,7 +7,7 @@ import './styles.css';
 const magic = new Magic('pk_live_C20A087BDF08A859', {
   extensions: {
     taquito: new TaquitoExtension({
-      rpcUrl: 'https://ghostnet.tezos.marigold.dev',
+      rpcUrl: 'https://rpc.oxfordnet.teztnets.com',
     }),
   },
 });
@@ -44,7 +44,7 @@ export default function App() {
 
   const handleMagicSign = async () => {
     setSendingTransaction(true);
-    const Tezos = new TezosToolkit('https://ghostnet.tezos.marigold.dev');
+    const Tezos = new TezosToolkit('https://rpc.oxfordnet.teztnets.com');
     const magicSigner = await magic.taquito.createMagicSigner();
 
     Tezos.setProvider({ signer: magicSigner });
@@ -80,12 +80,12 @@ export default function App() {
           <div className="container">
             <h1>Tezos address</h1>
             <div className="info">
-              <a href={`https://ghost.tzstats.com/${publicAddress}`} target="_blank" rel="noreferrer">
+              <a href={`https://oxfordnet.tzkt.io/${publicAddress}`} target="_blank" rel="noreferrer">
                 {publicAddress}
               </a>
             </div>
             <button>
-              <a href="https://faucet.ghostnet.teztnets.xyz/" target="_blank" rel="noreferrer">
+              <a href="https://faucet.oxfordnet.teztnets.com/" target="_blank" rel="noreferrer">
                 Faucet
               </a>
             </button>
